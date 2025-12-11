@@ -11,8 +11,8 @@ Script from Juliet Wong - RCN-ECS Fluctuating Selection, empirical studies figur
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+Install and load packages
 ```{r}
-# Install and load packages
 library(plotly)
 library(readr)
 library(UpSetR)
