@@ -1,0 +1,61 @@
+---
+title: "Upset_plot"
+author: "Emma Johnson"
+date: "2025-12-11"
+output: html_document
+---
+
+Script from Juliet Wong - RCN-ECS Fluctuating Selection, empirical studies figures
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Install and load packages
+```{r}
+library(plotly)
+library(readr)
+library(UpSetR)
+library(here)
+```
+
+Upset plot showing the number of studies that fulfill the 4 criteria
+```{r}
+#Read in data of all criteria for upset plot
+all_criteria <- read_csv("upsetplot_criteria.csv", 
+                         col_types = cols(Criteria_3 = col_number(), 
+                                          Criteria_2 = col_number(), 
+                                          Criteria_1 = col_number()))
+all_criteria <- as.data.frame(all_criteria)
+
+all_criteria[is.na(all_criteria)] <- 0
+
+# Set columns that are the criteria
+criteria <- c("Criteria_3","Criteria_2","Criteria_1")
+criteria
+
+pdf("upset_plot.pdf", width = 8, height = 6)
+
+
+upset(all_criteria, sets = criteria,
+      order.by = "freq", keep.order = TRUE,
+      queries = list(
+        list(query = elements, params = list("Type", c("DNA Methylation","non-coding RNA","Histone Modifications", "Multiple", "RNA Methylation")), color = "#0072B2", active=T),
+        list(query = elements, params = list("Type", c("non-coding RNA","Histone Modifications", "Multiple", "RNA Methylation")), color = "#E69F00", active=T),
+        list(query = elements, params = list("Type", c("Histone Modifications", "Multiple", "RNA Methylation")), color = "#009E73", active=T),
+        list(query = elements, params = list("Type", c("Multiple", "RNA Methylation")), color = "#D55E00", active=T),
+        list(query = elements, params = list("Type", "RNA Methylation"), color = "#F0E442", active=T)),
+      query.legend = "top",
+      line.size = 0.3, mainbar.y.label = "Number of studies",sets.x.label = "Studies Per Criteria")
+dev.off()
+
+```
+
+ "#0072B2",  # Blue
+  "#E69F00",  # Orange
+  "#009E73",  # Green
+  "#D55E00",  # Red/vermillion
+  "#F0E442"   # Yellow
+
+
+

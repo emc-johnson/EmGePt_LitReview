@@ -1,0 +1,131 @@
+---
+title: "review paper sunburst plots"
+author: "Emma Johnson"
+date: "2025-11-06"
+output: html_document
+---
+
+Script from Juliet Wong - RCN-ECS Fluctuating Selection, empirical studies figures
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Install and load packages
+library(plotly)
+library(readr)
+library(UpSetR)
+library(here)
+library(processx)
+library(webshot)
+library(htmlwidgets)
+```
+
+```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
+#Read in data for all Phyla sunburst plot
+phyla <- read_csv("sunburstplot_phyla.csv")
+
+#Plot all Phyla sunburst 
+phyla_fig <- plot_ly(phyla, ids = ~ids, labels = ~labels, 
+                     parents = ~parents, values= ~values, 
+                     type = 'sunburst', branchvalues = 'total',
+                     insidetextorientation='tangential',
+                     width = 500, height = 500,
+                     marker = list(colors = ~colors),
+                     color = I('#000000'))
+
+htmlwidgets::saveWidget(phyla_fig, "phyla_sunburst.html")
+webshot::webshot("phyla_sunburst.html", "phyla_sunburst.pdf",
+                 vwidth = 800, vheight = 800, delay = 1)
+
+phyla_fig
+```
+
+```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
+#Read in data for all Stressor sunburst plot
+stressor <- read_csv("sunburstplot_stressor.csv")
+
+#Plot all stressor sunburst
+stressor_fig <- plot_ly(stressor, ids = ~ids, labels = ~labels, 
+                        parents = ~parents, values= ~values, 
+                        type = 'sunburst', branchvalues = 'total',
+                        insidetextorientation='tangential',
+                        width = 500, height = 500,
+                        marker = list(colors = ~colors),
+                        color = I('#000000'))
+
+htmlwidgets::saveWidget(stressor_fig, "stressor_sunburst.html")
+webshot::webshot("stressor_sunburst.html", "stressor_sunburst.pdf",
+                 vwidth = 800, vheight = 800, delay = 1)
+
+stressor_fig
+
+# Other:
+#   HABs 4
+# 	Injury 3
+# 	Upwelling 3
+# 	Avestiation 2
+# 	Multiple 2
+# 	Radiation 2
+# 	Desiccation 1
+# 	Light availability	1
+```
+
+
+```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
+# Read data
+epimod <- read_csv("sunburstplot_epimod.csv")
+
+# Build interactive sunburst
+epi_mod_fig <- plot_ly(epimod,
+                       ids = ~ids,
+                       labels = ~labels,
+                       parents = ~parents,
+                       values = ~values,
+                       type = 'sunburst',
+                       branchvalues = 'total',
+                       insidetextorientation = 'tangential',
+                       marker = list(colors = ~colors),
+                       color = I('#000000'))
+
+htmlwidgets::saveWidget(epi_mod_fig, "epimod_sunburst.html")
+webshot::webshot("epimod_sunburst.html", "epimod_sunburst.pdf",
+                 vwidth = 800, vheight = 800, delay = 1)
+epi_mod_fig
+```
+
+```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
+#Read in data for transgeneration sunburst plot
+transgen <- read_csv("sunburstplot_transgenerational.csv")
+
+#Plot all epigenetic modifications
+transgen_fig <- plot_ly(transgen, ids = ~ids, labels = ~labels, 
+                       parents = ~parents, values= ~values, 
+                       type = 'sunburst', branchvalues = 'total',
+                       insidetextorientation='tangential',
+                       width = 500, height = 500,
+                       marker = list(colors = ~colors),
+                       color = I('#000000'))
+
+htmlwidgets::saveWidget(transgen_fig, "transgen_sunburst.html")
+webshot::webshot("transgen_sunburst.html", "transgen_sunburst.pdf",
+                 vwidth = 800, vheight = 800, delay = 1)
+
+transgen_fig
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
