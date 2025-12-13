@@ -24,7 +24,7 @@ library(htmlwidgets)
 
 ```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
 #Read in data for all Phyla sunburst plot
-phyla <- read_csv("sunburstplot_phyla.csv")
+phyla <- read_csv("/Users/emmajohnson/Desktop/Wong Lab/Review Paper/EmGePt_LitReview/Data/sunburstplot_phyla.csv")
 
 #Plot all Phyla sunburst 
 phyla_fig <- plot_ly(phyla, ids = ~ids, labels = ~labels, 
@@ -44,7 +44,7 @@ phyla_fig
 
 ```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
 #Read in data for all Stressor sunburst plot
-stressor <- read_csv("Data/sunburstplot_stressor.csv")
+stressor <- read_csv("/Users/emmajohnson/Desktop/Wong Lab/Review Paper/EmGePt_LitReview/Data/sunburstplot_stressor.csv")
 
 #Plot all stressor sunburst
 stressor_fig <- plot_ly(stressor, ids = ~ids, labels = ~labels, 
@@ -75,7 +75,7 @@ stressor_fig
 
 ```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
 # Read data
-epimod <- read_csv("sunburstplot_epimod.csv")
+epimod <- read_csv("/Users/emmajohnson/Desktop/Wong Lab/Review Paper/EmGePt_LitReview/Data/sunburstplot_epimod.csv")
 
 # Build interactive sunburst
 epi_mod_fig <- plot_ly(epimod,
@@ -97,7 +97,7 @@ epi_mod_fig
 
 ```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
 #Read in data for transgeneration sunburst plot
-transgen <- read_csv("sunburstplot_transgenerational.csv")
+transgen <- read_csv("/Users/emmajohnson/Desktop/Wong Lab/Review Paper/EmGePt_LitReview/Data/sunburstplot_transgenerational.csv")
 
 #Plot all epigenetic modifications
 transgen_fig <- plot_ly(transgen, ids = ~ids, labels = ~labels, 
