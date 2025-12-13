@@ -44,7 +44,7 @@ phyla_fig
 
 ```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
 #Read in data for all Stressor sunburst plot
-stressor <- read_csv("sunburstplot_stressor.csv")
+stressor <- read_csv("Data/sunburstplot_stressor.csv")
 
 #Plot all stressor sunburst
 stressor_fig <- plot_ly(stressor, ids = ~ids, labels = ~labels, 
