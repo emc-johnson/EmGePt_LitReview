@@ -21,7 +21,6 @@ library(here)
 
 Upset plot showing the number of studies that fulfill the 4 criteria
 ```{r}
-#Read in data of all criteria for upset plot
 all_criteria <- read_csv("upsetplot_criteria.csv", 
                          col_types = cols(Criteria_3 = col_number(), 
                                           Criteria_2 = col_number(), 
@@ -51,11 +50,6 @@ dev.off()
 
 ```
 
- "#0072B2",  # Blue
-  "#E69F00",  # Orange
-  "#009E73",  # Green
-  "#D55E00",  # Red/vermillion
-  "#F0E442"   # Yellow
 
 
 
