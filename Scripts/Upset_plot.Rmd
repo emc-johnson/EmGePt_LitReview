@@ -45,7 +45,7 @@ upset(all_criteria, sets = criteria,
         list(query = elements, params = list("Type", c("Multiple", "RNA Methylation")), color = "#D55E00", active=T),
         list(query = elements, params = list("Type", "RNA Methylation"), color = "#F0E442", active=T)),
       query.legend = "top",
-      line.size = 0.3, mainbar.y.label = "Number of studies",sets.x.label = "Studies Per Criteria")
+      line.size = 0.3, mainbar.y.label = "Number of studies",sets.x.label = "Studies per Response Type")
 dev.off()
 
 ```

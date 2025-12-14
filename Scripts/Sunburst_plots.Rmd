@@ -38,6 +38,10 @@ webshot::webshot("phyla_sunburst.html", "phyla_sunburst.pdf",
                  vwidth = 800, vheight = 800, delay = 1)
 
 phyla_fig
+
+# Other:
+#   Rotifera 2
+# 	Experiments involving multiple phyla 1
 ```
 
 ```{r save_sunburst_pdf, message=FALSE, warning=FALSE}
